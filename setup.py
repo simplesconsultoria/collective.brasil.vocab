@@ -6,7 +6,7 @@ version = open(os.path.join("collective", "brasil", "vocab", "version.txt")).rea
 
 setup(name='collective.brasil.vocab',
       version=version,
-      description="",
+      description="A Zope 3 vocabulary implementation of brasil.vocab",
       long_description=open(os.path.join("collective", "brasil", "vocab", "README.txt")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
@@ -17,10 +17,10 @@ setup(name='collective.brasil.vocab',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
-      author='',
-      author_email='',
-      url='http://svn.plone.org/svn/collective/',
+      keywords='zope brasil brazil vocabularies plone',
+      author='Simples Consultoria <products@simplesconsultoria.com.br>',
+      author_email='products@simplesconsultoria.com.br',
+      url='https://bitbucket.org/simplesconsultoria/collective.brasil.vocab/',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective', 'collective.brasil'],
