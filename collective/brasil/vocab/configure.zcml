@@ -10,5 +10,6 @@
     <!-- Registra vocabularios-->
     
     <include package=".geo" />
+    <include package=".telecom" />
 
 </configure>
