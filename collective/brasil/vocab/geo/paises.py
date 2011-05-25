@@ -7,12 +7,34 @@ from zope.schema.vocabulary import SimpleTerm
 from brasil.vocab.geo import paises
 
 class Paises(object):
-    """ Paises
+    """Vocabulary factory for a list of countries
+      
+      >>> from zope.component import queryUtility
+      >>> from plone.app.vocabularies.tests.base import create_context
+      
+      >>> name = 'brasil.paises'
+      >>> util = queryUtility(IVocabularyFactory, name)
+      >>> context = create_context()
+      >>> paises = util(context)
+      >>> paises
+      <zope.schema.vocabulary.SimpleVocabulary object at ...>
+      
+      >>> paises.by_token['BR']
+      <zope.schema.vocabulary.SimpleTerm object at ...>
+      
+      >>> paises.by_token['BR'].title
+      u'Brasil'
+      
+      >>> paises.by_token['BR'].token
+      'BR'
+      
+      >>> paises.by_token['BR'].value
+      'BR'
     """
     implements(IVocabularyFactory)
     
     def __call__(self, context):
-        items = [(v.encode('utf-8'),k) for k,v in paises]
-        return SimpleVocabulary.fromItems(items)
+        items = [SimpleTerm(k,k,v) for k,v in paises]
+        return SimpleVocabulary(items)
 
 PaisesVocabularyFactory = Paises()

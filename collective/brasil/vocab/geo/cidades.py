@@ -11,13 +11,35 @@ class CidadesIBGE(object):
     """ Vocabulary containing Brazilian Cities
         with the IBGE city code as vocabulary token 
         and the title in the format *City Name (UF)*
+        
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+        
+        >>> name = 'brasil.cidades.ibge'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
+        
+        >>> cidades.by_token['4202909']
+        <zope.schema.vocabulary.SimpleTerm object at ...>
+        
+        >>> cidades.by_token['4202909'].title
+        u'Brusque (SC)'
+        
+        >>> cidades.by_token['4202909'].token
+        '4202909'
+        
+        >>> cidades.by_token['4202909'].value
+        4202909
     """
     implements(IVocabularyFactory)
     
     def __call__(self, context):
-        items = [('%s (%s)' % (name.encode('utf-8'),uf.encode('utf-8')),k) 
+        items = [SimpleTerm(k,k,'%s (%s)' % (name,uf)) 
                               for k,name,uf,normalized in cidades]
-        return SimpleVocabulary.fromItems(items)
+        return SimpleVocabulary(items)
 
 CidadesIBGEVocabularyFactory = CidadesIBGE()
 
@@ -28,7 +50,7 @@ class CidadesPorEstado(object):
     """
     implements(IVocabularyFactory)
     
-    self.uf = u''
+    uf = u''
     
     def __call__(self, context):
         item = []
@@ -39,272 +61,541 @@ class CidadesPorEstado(object):
 
 
 class CidadesAC(CidadesPorEstado):
-    """ Vocabulary for cities from AC
+    """ Vocabulary for cities from Acre
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.AC'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'AC'
-    
+
+    uf = u'AC'
+
     def __call__(self, context):
         return super(CidadesAC,self).__call__(context)
 
+
 class CidadesAL(CidadesPorEstado):
-    """ Vocabulary for cities from AL
+    """ Vocabulary for cities from Alagoas
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.AL'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'AL'
-    
+
+    uf = u'AL'
+
     def __call__(self, context):
         return super(CidadesAL,self).__call__(context)
 
+
 class CidadesAP(CidadesPorEstado):
-    """ Vocabulary for cities from AP
+    """ Vocabulary for cities from Amapá
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.AP'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'AP'
-    
+
+    uf = u'AP'
+
     def __call__(self, context):
         return super(CidadesAP,self).__call__(context)
 
+
 class CidadesAM(CidadesPorEstado):
-    """ Vocabulary for cities from AM
+    """ Vocabulary for cities from Amazonas
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.AM'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'AM'
-    
+
+    uf = u'AM'
+
     def __call__(self, context):
         return super(CidadesAM,self).__call__(context)
 
+
 class CidadesBA(CidadesPorEstado):
-    """ Vocabulary for cities from BA
+    """ Vocabulary for cities from Bahia
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.BA'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'BA'
-    
+
+    uf = u'BA'
+
     def __call__(self, context):
         return super(CidadesBA,self).__call__(context)
 
+
 class CidadesCE(CidadesPorEstado):
-    """ Vocabulary for cities from CE
+    """ Vocabulary for cities from Ceará
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.CE'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'CE'
-    
+
+    uf = u'CE'
+
     def __call__(self, context):
         return super(CidadesCE,self).__call__(context)
 
+
 class CidadesDF(CidadesPorEstado):
-    """ Vocabulary for cities from DF
+    """ Vocabulary for cities from Distrito Federal
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.DF'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'DF'
-    
+
+    uf = u'DF'
+
     def __call__(self, context):
         return super(CidadesDF,self).__call__(context)
 
+
 class CidadesES(CidadesPorEstado):
-    """ Vocabulary for cities from ES
+    """ Vocabulary for cities from Espírito Santo
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.ES'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'ES'
-    
+
+    uf = u'ES'
+
     def __call__(self, context):
         return super(CidadesES,self).__call__(context)
 
+
 class CidadesGO(CidadesPorEstado):
-    """ Vocabulary for cities from GO
+    """ Vocabulary for cities from Goiás
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.GO'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'GO'
-    
+
+    uf = u'GO'
+
     def __call__(self, context):
         return super(CidadesGO,self).__call__(context)
 
+
 class CidadesMA(CidadesPorEstado):
-    """ Vocabulary for cities from MA
+    """ Vocabulary for cities from Maranhão
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.MA'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'MA'
-    
+
+    uf = u'MA'
+
     def __call__(self, context):
         return super(CidadesMA,self).__call__(context)
 
+
 class CidadesMT(CidadesPorEstado):
-    """ Vocabulary for cities from MT
+    """ Vocabulary for cities from Mato Grosso
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.MT'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'MT'
-    
+
+    uf = u'MT'
+
     def __call__(self, context):
         return super(CidadesMT,self).__call__(context)
 
+
 class CidadesMS(CidadesPorEstado):
-    """ Vocabulary for cities from MS
+    """ Vocabulary for cities from Mato Grosso do Sul
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.MS'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'MS'
-    
+
+    uf = u'MS'
+
     def __call__(self, context):
         return super(CidadesMS,self).__call__(context)
 
+
 class CidadesMG(CidadesPorEstado):
-    """ Vocabulary for cities from MG
+    """ Vocabulary for cities from Minas Gerais
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.MG'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'MG'
-    
+
+    uf = u'MG'
+
     def __call__(self, context):
         return super(CidadesMG,self).__call__(context)
 
+
 class CidadesPA(CidadesPorEstado):
-    """ Vocabulary for cities from PA
+    """ Vocabulary for cities from Pará
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.PA'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'PA'
-    
+
+    uf = u'PA'
+
     def __call__(self, context):
         return super(CidadesPA,self).__call__(context)
 
+
 class CidadesPB(CidadesPorEstado):
-    """ Vocabulary for cities from PB
+    """ Vocabulary for cities from Paraíba
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.PB'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'PB'
-    
+
+    uf = u'PB'
+
     def __call__(self, context):
         return super(CidadesPB,self).__call__(context)
 
+
 class CidadesPR(CidadesPorEstado):
-    """ Vocabulary for cities from PR
+    """ Vocabulary for cities from Paraná
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.PR'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'PR'
-    
+
+    uf = u'PR'
+
     def __call__(self, context):
         return super(CidadesPR,self).__call__(context)
 
+
 class CidadesPE(CidadesPorEstado):
-    """ Vocabulary for cities from PE
+    """ Vocabulary for cities from Pernambuco
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.PE'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'PE'
-    
+
+    uf = u'PE'
+
     def __call__(self, context):
         return super(CidadesPE,self).__call__(context)
 
+
 class CidadesPI(CidadesPorEstado):
-    """ Vocabulary for cities from PI
+    """ Vocabulary for cities from Piauí
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.PI'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'PI'
-    
+
+    uf = u'PI'
+
     def __call__(self, context):
         return super(CidadesPI,self).__call__(context)
 
+
 class CidadesRJ(CidadesPorEstado):
-    """ Vocabulary for cities from RJ
+    """ Vocabulary for cities from Rio de Janeiro
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.RJ'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'RJ'
-    
+
+    uf = u'RJ'
+
     def __call__(self, context):
         return super(CidadesRJ,self).__call__(context)
 
+
 class CidadesRN(CidadesPorEstado):
-    """ Vocabulary for cities from RN
+    """ Vocabulary for cities from Rio Grande do Norte
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.RN'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'RN'
-    
+
+    uf = u'RN'
+
     def __call__(self, context):
         return super(CidadesRN,self).__call__(context)
 
+
 class CidadesRS(CidadesPorEstado):
-    """ Vocabulary for cities from RS
+    """ Vocabulary for cities from Rio Grande do Sul
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.RS'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'RS'
-    
+
+    uf = u'RS'
+
     def __call__(self, context):
         return super(CidadesRS,self).__call__(context)
 
+
 class CidadesRO(CidadesPorEstado):
-    """ Vocabulary for cities from RO
+    """ Vocabulary for cities from Rondônia
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.RO'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'RO'
-    
+
+    uf = u'RO'
+
     def __call__(self, context):
         return super(CidadesRO,self).__call__(context)
 
+
 class CidadesRR(CidadesPorEstado):
-    """ Vocabulary for cities from RR
+    """ Vocabulary for cities from Roraima
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.RR'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'RR'
-    
+
+    uf = u'RR'
+
     def __call__(self, context):
         return super(CidadesRR,self).__call__(context)
 
+
 class CidadesSC(CidadesPorEstado):
-    """ Vocabulary for cities from SC
+    """ Vocabulary for cities from Santa Catarina
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.SC'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'SC'
-    
+
+    uf = u'SC'
+
     def __call__(self, context):
         return super(CidadesSC,self).__call__(context)
 
+
 class CidadesSP(CidadesPorEstado):
-    """ Vocabulary for cities from SP
+    """ Vocabulary for cities from São Paulo
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.SP'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'SP'
-    
+
+    uf = u'SP'
+
     def __call__(self, context):
         return super(CidadesSP,self).__call__(context)
 
+
 class CidadesSE(CidadesPorEstado):
-    """ Vocabulary for cities from SE
+    """ Vocabulary for cities from Sergipe
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.SE'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'SE'
-    
+
+    uf = u'SE'
+
     def __call__(self, context):
         return super(CidadesSE,self).__call__(context)
 
+
 class CidadesTO(CidadesPorEstado):
-    """ Vocabulary for cities from TO
+    """ Vocabulary for cities from Tocantins
+        >>> from zope.component import queryUtility
+        >>> from plone.app.vocabularies.tests.base import create_context
+
+        >>> name = 'brasil.cidades.TO'
+        >>> util = queryUtility(IVocabularyFactory, name)
+        >>> context = create_context()
+        >>> cidades = util(context)
+        >>> cidades
+        <zope.schema.vocabulary.SimpleVocabulary object at ...>
     """
     implements(IVocabularyFactory)
-    
-    self.uf = u'TO'
-    
+
+    uf = u'TO'
+
     def __call__(self, context):
         return super(CidadesTO,self).__call__(context)
 
