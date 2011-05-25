@@ -5,8 +5,6 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.brasil.vocab">
 
-    <i18n:registerTranslations directory="locales" />
-    
     <!-- Registra vocabularios-->
     
     <utility
@@ -20,8 +18,118 @@
       />
     
     <utility
-      component=".cidades.CidadesVocabularyFactory"
-      name="brasil.cidades"
+      component=".cidades.CidadesIBGEVocabularyFactory"
+      name="brasil.cidades.ibge"
+      />
+    
+    <!-- Vocabularios por Estado-->
+    <utility
+      component=".cidades.CidadesACVocabularyFactory"
+      name="brasil.cidades.AC"
+      />
+    <utility
+      component=".cidades.CidadesALVocabularyFactory"
+      name="brasil.cidades.AL"
+      />
+    <utility
+      component=".cidades.CidadesAPVocabularyFactory"
+      name="brasil.cidades.AP"
+      />
+    <utility
+      component=".cidades.CidadesAMVocabularyFactory"
+      name="brasil.cidades.AM"
+      />
+    <utility
+      component=".cidades.CidadesBAVocabularyFactory"
+      name="brasil.cidades.BA"
+      />
+    <utility
+      component=".cidades.CidadesCEVocabularyFactory"
+      name="brasil.cidades.CE"
+      />
+    <utility
+      component=".cidades.CidadesDFVocabularyFactory"
+      name="brasil.cidades.DF"
+      />
+    <utility
+      component=".cidades.CidadesESVocabularyFactory"
+      name="brasil.cidades.ES"
+      />
+    <utility
+      component=".cidades.CidadesGOVocabularyFactory"
+      name="brasil.cidades.GO"
+      />
+    <utility
+      component=".cidades.CidadesMAVocabularyFactory"
+      name="brasil.cidades.MA"
+      />
+    <utility
+      component=".cidades.CidadesMTVocabularyFactory"
+      name="brasil.cidades.MT"
+      />
+    <utility
+      component=".cidades.CidadesMSVocabularyFactory"
+      name="brasil.cidades.MS"
+      />
+    <utility
+      component=".cidades.CidadesMGVocabularyFactory"
+      name="brasil.cidades.MG"
+      />
+    <utility
+      component=".cidades.CidadesPAVocabularyFactory"
+      name="brasil.cidades.PA"
+      />
+    <utility
+      component=".cidades.CidadesPBVocabularyFactory"
+      name="brasil.cidades.PB"
+      />
+    <utility
+      component=".cidades.CidadesPRVocabularyFactory"
+      name="brasil.cidades.PR"
+      />
+    <utility
+      component=".cidades.CidadesPEVocabularyFactory"
+      name="brasil.cidades.PE"
+      />
+    <utility
+      component=".cidades.CidadesPIVocabularyFactory"
+      name="brasil.cidades.PI"
+      />
+    <utility
+      component=".cidades.CidadesRJVocabularyFactory"
+      name="brasil.cidades.RJ"
+      />
+    <utility
+      component=".cidades.CidadesRNVocabularyFactory"
+      name="brasil.cidades.RN"
+      />
+    <utility
+      component=".cidades.CidadesRSVocabularyFactory"
+      name="brasil.cidades.RS"
+      />
+    <utility
+      component=".cidades.CidadesROVocabularyFactory"
+      name="brasil.cidades.RO"
+      />
+    <utility
+      component=".cidades.CidadesRRVocabularyFactory"
+      name="brasil.cidades.RR"
+      />
+    <utility
+      component=".cidades.CidadesSCVocabularyFactory"
+      name="brasil.cidades.SC"
+      />
+    <utility
+      component=".cidades.CidadesSPVocabularyFactory"
+      name="brasil.cidades.SP"
+      />
+    <utility
+      component=".cidades.CidadesSEVocabularyFactory"
+      name="brasil.cidades.SE"
+      />
+    <utility
+      component=".cidades.CidadesTOVocabularyFactory"
+      name="brasil.cidades.TO"
       />
 
 </configure>
