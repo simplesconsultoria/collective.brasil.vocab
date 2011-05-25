@@ -1,7 +1,7 @@
 Changelog
 ----------
 
-0.5 - Unreleased
+0.5 (2011-05-25)
 ^^^^^^^^^^^^^^^^^^^^^
 
   * Adding Countries, States, Cities and Cities per state [erico_andrei]
