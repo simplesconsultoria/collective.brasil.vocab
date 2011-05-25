@@ -4,4 +4,6 @@ Changelog
 0.5 - Unreleased
 ^^^^^^^^^^^^^^^^^^^^^
 
-* Initial release
+  * Adding Countries, States, Cities and Cities per state [erico_andrei]
+  
+  * Adding Area Code vocabularies [erico_andrei]
