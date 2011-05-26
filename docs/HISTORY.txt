@@ -4,7 +4,7 @@ Changelog
 0.6 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+  * Update our requirements to use brasil.vocab >=0.7
 
 
 0.5 (2011-05-25)

@@ -29,7 +29,7 @@ setup(name='collective.brasil.vocab',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'brasil.vocab',
+          'brasil.vocab>=0.7',
       ],
       entry_points="""
       # -*- Entry points: -*-
