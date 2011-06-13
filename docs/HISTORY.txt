@@ -1,7 +1,7 @@
 Changelog
 ----------
 
-0.7 (unreleased)
+0.7 (2011-06-13)
 ^^^^^^^^^^^^^^^^
 
   * Archetypes needs the key of a vocab to be a string [erico_andrei]
