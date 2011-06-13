@@ -1,10 +1,15 @@
 Changelog
 ----------
 
-0.6 (unreleased)
+0.7 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-  * Update our requirements to use brasil.vocab >=0.7
+  * Archetypes needs the key of a vocab to be a string [erico_andrei]
+
+0.6 (2011-05-26)
+^^^^^^^^^^^^^^^^
+
+  * Update our requirements to use brasil.vocab >=0.7 [erico_andrei]
 
 
 0.5 (2011-05-25)

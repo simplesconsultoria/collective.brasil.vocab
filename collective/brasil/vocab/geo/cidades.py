@@ -32,12 +32,12 @@ class CidadesIBGE(object):
         '4202909'
         
         >>> cidades.by_token['4202909'].value
-        4202909
+        '4202909'
     """
     implements(IVocabularyFactory)
     
     def __call__(self, context):
-        items = [SimpleTerm(k,k,'%s (%s)' % (name,uf)) 
+        items = [SimpleTerm(str(k),str(k),'%s (%s)' % (name,uf)) 
                               for k,name,uf,normalized in cidades]
         return SimpleVocabulary(items)
 
