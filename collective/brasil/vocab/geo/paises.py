@@ -10,12 +10,10 @@ class Paises(object):
     """Vocabulary factory for a list of countries
       
       >>> from zope.component import queryUtility
-      >>> from plone.app.vocabularies.tests.base import create_context
       
       >>> name = 'brasil.paises'
       >>> util = queryUtility(IVocabularyFactory, name)
-      >>> context = create_context()
-      >>> paises = util(context)
+      >>> paises = util()
       >>> paises
       <zope.schema.vocabulary.SimpleVocabulary object at ...>
       
@@ -33,7 +31,7 @@ class Paises(object):
     """
     implements(IVocabularyFactory)
     
-    def __call__(self, context):
+    def __call__(self, context=None):
         items = [SimpleTerm(k,k,v) for k,v in paises]
         return SimpleVocabulary(items)
 
