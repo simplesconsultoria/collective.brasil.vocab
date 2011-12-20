@@ -31,6 +31,9 @@ setup(name='collective.brasil.vocab',
           # -*- Extra requirements: -*-
           'brasil.vocab>=0.7',
       ],
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
