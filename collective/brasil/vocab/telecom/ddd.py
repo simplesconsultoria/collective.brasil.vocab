@@ -10,12 +10,10 @@ class DDD(object):
     """Vocabulary factory for area codes in Brazil.
       
       >>> from zope.component import queryUtility
-      >>> from plone.app.vocabularies.tests.base import create_context
       
       >>> name = 'brasil.ddd'
       >>> util = queryUtility(IVocabularyFactory, name)
-      >>> context = create_context()
-      >>> ddd = util(context)
+      >>> ddd = util()
       >>> ddd
       <zope.schema.vocabulary.SimpleVocabulary object at ...>
       
@@ -30,7 +28,7 @@ class DDD(object):
     """
     implements(IVocabularyFactory)
     
-    def __call__(self, context):
+    def __call__(self, context=None):
         items = [(v,k) for k,v in ddd]
         return SimpleVocabulary.fromItems(items)
 
