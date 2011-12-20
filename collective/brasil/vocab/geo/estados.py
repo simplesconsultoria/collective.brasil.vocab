@@ -10,12 +10,10 @@ class Estados(object):
     """Vocabulary factory for a list of estados
       
       >>> from zope.component import queryUtility
-      >>> from plone.app.vocabularies.tests.base import create_context
       
       >>> name = 'brasil.estados'
       >>> util = queryUtility(IVocabularyFactory, name)
-      >>> context = create_context()
-      >>> estados = util(context)
+      >>> estados = util()
       >>> estados
       <zope.schema.vocabulary.SimpleVocabulary object at ...>
       
@@ -33,7 +31,7 @@ class Estados(object):
     """
     implements(IVocabularyFactory)
     
-    def __call__(self, context):
+    def __call__(self, context=None):
         items = [SimpleTerm(k,k,v) for k,v in uf]
         return SimpleVocabulary(items)
 
