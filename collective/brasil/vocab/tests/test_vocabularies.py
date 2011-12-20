@@ -6,7 +6,10 @@ import unittest
 import zope.component
 from zope.component.testing import setUp, tearDown
 from zope.configuration.xmlconfig import XMLConfig
-from zope.site import hooks
+try:
+    from zope.site import hooks
+except ImportError:
+    from zope.app.component import hooks
 
 import collective.brasil.vocab
 
