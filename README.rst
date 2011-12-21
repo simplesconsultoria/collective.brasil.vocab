@@ -1,8 +1,10 @@
+================================================
+Brazilian Vocabularies for Zope and Plone
+================================================
+
 .. contents:: Table of Contents
    :depth: 2
 
-collective.brasil.vocab
-****************************************
 
 Overview
 --------
@@ -181,6 +183,11 @@ brasil.ddd
 ^^^^^^^^^^^^^^^^^^^^
 
 Provides a vocabulary containing valid Brazil area codes.
+
+brasil.cng
+^^^^^^^^^^^^^^^^^^^^
+
+Provides a vocabulary containing Non Geographic Codes for Brazil (0x00)
 
 Sponsoring
 ----------
