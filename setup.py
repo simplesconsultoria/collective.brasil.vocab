@@ -2,7 +2,8 @@
 from setuptools import setup, find_packages
 import os
 
-version = open(os.path.join("collective", "brasil", "vocab", "version.txt")).read().strip()
+version = open(os.path.join("collective", "brasil",
+                            "vocab", "version.txt")).read().strip()
 
 setup(name='collective.brasil.vocab',
       version=version,
@@ -44,4 +45,3 @@ setup(name='collective.brasil.vocab',
       target = plone
       """,
       )
-
