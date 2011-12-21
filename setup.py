@@ -7,9 +7,8 @@ version = open(os.path.join("collective", "brasil", "vocab", "version.txt")).rea
 setup(name='collective.brasil.vocab',
       version=version,
       description="A Zope 3 vocabulary implementation of brasil.vocab",
-      long_description=open(os.path.join("collective", "brasil", "vocab", "README.txt")).read() + "\n" +
+      long_description=open(os.path.join("README.rst")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 3.3",
@@ -34,7 +33,7 @@ setup(name='collective.brasil.vocab',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
-          'brasil.vocab>=0.7',
+          'brasil.vocab>=0.8',
       ],
       extras_require={
         'test': ['plone.app.testing'],
