@@ -4,7 +4,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
 
-from brasil.vocab.telecom import ddd
+from brasil.vocab.telecom import codes
 
 class DDD(object):
     """Vocabulary factory for area codes in Brazil.
@@ -29,7 +29,7 @@ class DDD(object):
     implements(IVocabularyFactory)
     
     def __call__(self, context=None):
-        items = [(v,k) for k,v in ddd]
+        items = [(v,k) for k,v in codes]
         return SimpleVocabulary.fromItems(items)
 
 DDDVocabularyFactory = DDD()
