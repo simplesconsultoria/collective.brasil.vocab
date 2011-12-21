@@ -4,7 +4,11 @@ Changelog
 0.8 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+  * Use plone.app.testing [ericof]
+
+  * Context is an optional argument for all vocabularies [ericof]
+
+  * Moved to github [ericof]
 
 
 0.7 (2011-06-13)
