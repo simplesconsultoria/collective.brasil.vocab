@@ -45,4 +45,8 @@ def test_suite():
                      setUp=vocabSetUp,
                      tearDown=vocabTearDown,
                      optionflags=optionflags),
+       DocTestSuite('collective.brasil.vocab.telecom.cng',
+                     setUp=vocabSetUp,
+                     tearDown=vocabTearDown,
+                     optionflags=optionflags),
         ))
